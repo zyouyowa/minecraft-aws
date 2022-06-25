@@ -1,0 +1,13 @@
+[Unit]
+Description=Bedrock Edition Minecraft Server
+After=network.target local-fs.target
+
+[Service]
+Type=forking
+User=ubuntu
+ExecStartPre=/opt/bedrock/bedrock-update.sh
+ExecStart=/opt/bedrock/sys-minecraft-up.sh start
+ExecStop=/opt/bedrock/sys-minecraft-up.sh stop
+
+[Install]
+WantedBy=multi-user.target
